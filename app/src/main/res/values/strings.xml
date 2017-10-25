@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Bilingual_Dictionary_ID_ENG</string>
+    <string name="img_view_splash_screen">image view splash screen</string>
+    <string name="img_view_icon_app">image view icon</string>
+    <string name="bilingual_dictionary">Bilingual Dictionary</string>
+    <string name="id_eng">ID-ENG</string>
+</resources>
