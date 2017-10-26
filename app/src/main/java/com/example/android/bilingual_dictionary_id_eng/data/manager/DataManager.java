@@ -35,6 +35,13 @@ public class DataManager {
         );
     }
 
+    public String getFirstInstallConfig(){
+        return sharedPreferenceSettings.get(
+                SharedPreferenceSettings.PREF_KEY_FIRST_INSTALL,
+                null
+        );
+    }
+
     public Long insertDataKamusIndonesiaToEnglish(KataKamus kataKamus)throws Exception{
         return databaseHelper.insertDataKamusIndonesiaToEnglish(kataKamus);
     }
@@ -49,5 +56,21 @@ public class DataManager {
 
     public KataKamus getDataKamusEnglishToIndonesia(String keyword)throws Exception{
         return null;
+    }
+
+    public int deleteDataKamusIndonesiaToEnglish()throws Exception{
+        return databaseHelper.deleteDataKamusIndonesiaToEnglish();
+    }
+
+    public int deleteDataKamusEnglishToIndonesia()throws Exception{
+        return databaseHelper.deleteDataKamusEnglishToIndonesia();
+    }
+
+    public int getSizeItemDataKamusEnglishToIndonesia()throws Exception{
+        return databaseHelper.itemCountDataKamusEnglishToIndonesia();
+    }
+
+    public int getSizeItemDataKamusIndonesiaToEnglish()throws Exception{
+        return databaseHelper.itemCountDataKamusIndonesiaToEnglish();
     }
 }

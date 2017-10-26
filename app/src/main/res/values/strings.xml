@@ -3,5 +3,16 @@
     <string name="img_view_splash_screen">image view splash screen</string>
     <string name="img_view_icon_app">image view icon</string>
     <string name="bilingual_dictionary">Bilingual Dictionary</string>
-    <string name="id_eng">ID-ENG</string>
+    <string name="eng_id">English-Indonesia</string>
+    <string name="id_eng">Indonesia-English</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="preparing_data">preparing data</string>
+
 </resources>

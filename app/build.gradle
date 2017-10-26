@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "com.example.android.bilingual_dictionary_id_eng"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -17,7 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    configurations.all{
+    configurations.all {
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
     }
 }
@@ -43,4 +43,6 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:' + rootProject.daggerVersion
     /*annotationProcessor 'com.google.dagger:dagger-android-processor:'+ rootProject.daggerVersion
     annotationProcessor 'android.arch.persistence.room:compiler:' + rootProject.archRoomVersion*/
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:support-v4:25.3.1'
 }

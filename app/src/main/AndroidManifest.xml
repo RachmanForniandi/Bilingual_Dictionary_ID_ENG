@@ -3,6 +3,7 @@
     package="com.example.android.bilingual_dictionary_id_eng">
 
     <application
+        android:name=".TheApp"
         android:allowBackup="true"
         android:icon="@drawable/app_dictionary"
         android:label="@string/app_name"
@@ -16,6 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".primary_ui.dashboard.DashboardActivity"
+            android:label="@string/bilingual_dictionary"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

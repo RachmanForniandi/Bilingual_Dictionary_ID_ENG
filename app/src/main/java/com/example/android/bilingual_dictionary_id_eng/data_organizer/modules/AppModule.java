@@ -1,4 +1,4 @@
-package com.example.android.bilingual_dictionary_id_eng;
+package com.example.android.bilingual_dictionary_id_eng.data_organizer.modules;
 
 import android.app.Application;
 import android.content.Context;
@@ -18,7 +18,7 @@ import dagger.Provides;
 public class AppModule {
     private Application application;
 
-    public AppModule(TheApp application){
+    public AppModule(Application application){
         this.application = application;
     }
 

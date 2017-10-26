@@ -1,12 +1,14 @@
-package com.example.android.bilingual_dictionary_id_eng;
+package com.example.android.bilingual_dictionary_id_eng.data_organizer.components;
 
 import android.app.Application;
 import android.content.Context;
 
+import com.example.android.bilingual_dictionary_id_eng.TheApp;
 import com.example.android.bilingual_dictionary_id_eng.data.db.DBHelper;
 import com.example.android.bilingual_dictionary_id_eng.data.manager.DataManager;
 import com.example.android.bilingual_dictionary_id_eng.data.sharedpreference.SharedPreferenceSettings;
 import com.example.android.bilingual_dictionary_id_eng.data_organizer.ApplicationContext;
+import com.example.android.bilingual_dictionary_id_eng.data_organizer.modules.AppModule;
 
 import javax.inject.Singleton;
 
@@ -15,6 +17,7 @@ import dagger.Component;
 /**
  * Created by Lenovo on 10/24/2017.
  */
+
 @Singleton
 @Component(modules = AppModule.class)
 public interface AppComponent {
