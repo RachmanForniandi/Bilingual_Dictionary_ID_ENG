@@ -64,7 +64,7 @@ public class MainPresenter implements MvpPresenter<MainView> {
                             new InputStreamReader(
                                     context.getAssets()
                                             .open("english_indonesia.txt"),
-                                    "utf-8"
+                                    "UTF-8"
                             )
                     );
                     String strLine;
@@ -180,7 +180,7 @@ public class MainPresenter implements MvpPresenter<MainView> {
                             new InputStreamReader(
                                     context.getAssets()
                                             .open("english_indonesia.txt"),
-                                    "utf-8"
+                                    "UTF-8"
                             )
                     );
                     String strLine;
@@ -204,7 +204,7 @@ public class MainPresenter implements MvpPresenter<MainView> {
                             new InputStreamReader(
                                     context.getAssets()
                                             .open("indonesia_english.txt"),
-                                    "utf-8"
+                                    "UTF-8"
                             )
                     );
                     while ((strLine = bufferedReader.readLine()) != null) {
@@ -296,8 +296,9 @@ public class MainPresenter implements MvpPresenter<MainView> {
                         );
             }
         }
+ 
 
-        void onGetItemDataKamus(DataManager dataManager)throws Exception{
+        void onGetItemDataKamus(DataManager dataManager){
         int itemCountKamusEnglishToIndonesia = dataManager.getSizeItemDataKamusEnglishToIndonesia();
         int itemCountKamusIndonesiaToEnglish = dataManager.getSizeItemDataKamusIndonesiaToEnglish();
         Log.d(TAG, "itemCountKamusEnglishToIndonesia: " + itemCountKamusEnglishToIndonesia);

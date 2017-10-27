@@ -15,6 +15,7 @@ import javax.inject.Singleton;
  */
 @Singleton
 public class DataManager {
+
     private Context context;
     private DBHelper databaseHelper;
     private SharedPreferenceSettings sharedPreferenceSettings;
@@ -66,11 +67,11 @@ public class DataManager {
         return databaseHelper.deleteDataKamusEnglishToIndonesia();
     }
 
-    public int getSizeItemDataKamusEnglishToIndonesia()throws Exception{
+    public int getSizeItemDataKamusEnglishToIndonesia(){
         return databaseHelper.itemCountDataKamusEnglishToIndonesia();
     }
 
-    public int getSizeItemDataKamusIndonesiaToEnglish()throws Exception{
+    public int getSizeItemDataKamusIndonesiaToEnglish(){
         return databaseHelper.itemCountDataKamusIndonesiaToEnglish();
     }
 }
