@@ -1,9 +1,6 @@
 package com.example.android.bilingual_dictionary_id_eng.data_organizer.modules;
 
 import android.app.Activity;
-import android.content.Context;
-
-import com.example.android.bilingual_dictionary_id_eng.data_organizer.ActivityContext;
 
 import dagger.Module;
 import dagger.Provides;
@@ -21,11 +18,11 @@ public class ActivityModule {
         this.activity = activity;
     }
 
-    @Provides
+    /*@Provides
     @ActivityContext
     Context provideContext(){
         return activity;
-    }
+    }*/
 
     @Provides
     Activity provideActivity(){

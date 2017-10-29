@@ -58,7 +58,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
         setContentView(R.layout.content_dashboard);
         ButterKnife.bind(this);
         getActivityComponent().inject(this);
-        onAttach();
+        onAttachMvpView();
         initToolbar();
         initNavigationDrawer();
         initContentLayout();
@@ -72,12 +72,12 @@ public class DashboardActivity extends AppCompatActivity implements DashboardVie
     }
 
     @Override
-    public void onAttach() {
+    public void onAttachMvpView() {
         dashboardPresenter.onAttachView(this);
     }
 
     @Override
-    public void onDetach() {
+    public void onDetachMvpView() {
         dashboardPresenter.onDetachView();
     }
 

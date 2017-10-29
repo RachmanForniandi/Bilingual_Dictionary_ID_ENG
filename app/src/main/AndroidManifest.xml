@@ -20,7 +20,8 @@
         <activity
             android:name=".primary_ui.dashboard.DashboardActivity"
             android:label="@string/bilingual_dictionary"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".primary_ui.detail.DetailKamus"></activity>
     </application>
 
 </manifest>

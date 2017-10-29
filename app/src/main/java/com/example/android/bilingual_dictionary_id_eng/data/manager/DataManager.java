@@ -7,6 +7,8 @@ import com.example.android.bilingual_dictionary_id_eng.data.sharedpreference.Sha
 import com.example.android.bilingual_dictionary_id_eng.data_organizer.ApplicationContext;
 import com.example.android.bilingual_dictionary_id_eng.model.KataKamus;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -73,5 +75,13 @@ public class DataManager {
 
     public int getSizeItemDataKamusIndonesiaToEnglish(){
         return databaseHelper.itemCountDataKamusIndonesiaToEnglish();
+    }
+
+    public List<KataKamus>searchKeyWordEnglishToIndonesia(String keyword){
+        return databaseHelper.getDataEnglishIndonesiaByKeyword(keyword);
+    }
+
+    public List<KataKamus>searchKeyWordIndonesiaToEnglish(String keyword){
+        return databaseHelper.getDataIndonesiaEnglishByKeyword(keyword);
     }
 }

@@ -12,6 +12,9 @@ import com.example.android.bilingual_dictionary_id_eng.data_organizer.Applicatio
 import com.example.android.bilingual_dictionary_id_eng.data_organizer.DBInfo;
 import com.example.android.bilingual_dictionary_id_eng.model.KataKamus;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 /**
@@ -35,7 +38,8 @@ public class DBHelper extends SQLiteOpenHelper{
     public static final String KAMUS_ENGLISH_COLUMN_TO_WORD = "toWord";
 
     @Inject
-    public DBHelper(@ApplicationContext Context context, @DBInfo String databaseName,
+    public DBHelper(@ApplicationContext Context context,
+                    @DBInfo String databaseName,
                     @DBInfo Integer version){
         super(context, databaseName, null, version);
     }
@@ -58,11 +62,11 @@ public class DBHelper extends SQLiteOpenHelper{
         try {
             sqLiteDatabase.execSQL(
                     "CREATE TABLE IF NOT EXISTS " + KAMUS_INDONESIA_TABLE_NAME + ""
-                    + "("
-                    + KAMUS_INDONESIA_COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + KAMUS_INDONESIA_COLUMN_FROM_WORD + " TEXT, "
-                    + KAMUS_INDONESIA_COLUMN_TO_WORD + " TEXT"
-                    + ")"
+                            + "("
+                            + KAMUS_INDONESIA_COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "
+                            + KAMUS_INDONESIA_COLUMN_FROM_WORD + " TEXT, "
+                            + KAMUS_INDONESIA_COLUMN_TO_WORD + " TEXT"
+                            + ")"
             );
         }catch (SQLException sqlE){
             sqlE.printStackTrace();
@@ -185,5 +189,81 @@ public class DBHelper extends SQLiteOpenHelper{
             throw e;
         }
         return itemCount;
+    }
+
+    public List<KataKamus> getDataEnglishIndonesiaByKeyword(String keyword)throws Resources.NotFoundException, NullPointerException{
+        List<KataKamus> listDataEnglishIndonesia = new ArrayList<>();
+        try {
+            SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+            Cursor cursor =  sqLiteDatabase.rawQuery(
+                    "SELECT * FROM " + KAMUS_ENGLISH_TABLE_NAME
+                            + " WHERE "
+                            + KAMUS_ENGLISH_COLUMN_FROM_WORD + " LIKE '%" + keyword + "%'",
+                    null
+            );
+            if (cursor.getCount() > 0){
+                while (cursor.moveToNext()){
+                    KataKamus kataKamus = new KataKamus(
+                            cursor.getString(cursor.getColumnIndex(KAMUS_ENGLISH_COLUMN_FROM_WORD)),
+                            cursor.getString(cursor.getColumnIndex(KAMUS_ENGLISH_COLUMN_TO_WORD))
+                    );
+                    if (listDataEnglishIndonesia.size() > 0){
+                        boolean isAlreadyAdded = false;
+                        for (KataKamus kataKamusSave : listDataEnglishIndonesia){
+                            if (kataKamusSave.getFromWord().equals(kataKamus.getFromWord())){
+                                isAlreadyAdded = true;
+                                break;
+                            }
+                        }
+                        if (!isAlreadyAdded){
+                            listDataEnglishIndonesia.add(kataKamus);
+                        }
+                    }else {
+                        listDataEnglishIndonesia.add(kataKamus);
+                    }
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return listDataEnglishIndonesia;
+    }
+
+    public List<KataKamus> getDataIndonesiaEnglishByKeyword(String keyword)throws Resources.NotFoundException, NullPointerException{
+        List<KataKamus> listDataIndonesiaEnglish = new ArrayList<>();
+        try {
+            SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+            Cursor cursor =  sqLiteDatabase.rawQuery(
+                    "SELECT * FROM " + KAMUS_INDONESIA_TABLE_NAME
+                            + " WHERE "
+                            + KAMUS_INDONESIA_COLUMN_FROM_WORD + " LIKE '%" + keyword + "%'",
+                    null
+            );
+            if (cursor.getCount() > 0){
+                while (cursor.moveToNext()){
+                    KataKamus kataKamus = new KataKamus(
+                            cursor.getString(cursor.getColumnIndex(KAMUS_INDONESIA_COLUMN_FROM_WORD)),
+                            cursor.getString(cursor.getColumnIndex(KAMUS_INDONESIA_COLUMN_TO_WORD))
+                    );
+                    if (listDataIndonesiaEnglish.size() > 0){
+                        boolean isAlreadyAdded = false;
+                        for (KataKamus kataKamusSave : listDataIndonesiaEnglish){
+                            if (kataKamusSave.getFromWord().equals(kataKamus.getFromWord())){
+                                isAlreadyAdded = true;
+                                break;
+                            }
+                        }
+                        if (!isAlreadyAdded){
+                            listDataIndonesiaEnglish.add(kataKamus);
+                        }
+                    }else {
+                        listDataIndonesiaEnglish.add(kataKamus);
+                    }
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return listDataIndonesiaEnglish;
     }
 }

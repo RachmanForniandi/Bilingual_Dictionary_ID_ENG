@@ -5,7 +5,8 @@ package com.example.android.bilingual_dictionary_id_eng.primary_ui.core;
  */
 
 public interface MvpView {
-    void onAttach();
 
-    void onDetach();
+    void onAttachMvpView();
+
+    void onDetachMvpView();
 }
